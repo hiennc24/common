@@ -1,4 +1,4 @@
 ## COMMON PROJECT
 
 ### INSTALL
-npm install @hiennc/common
+npm install @hiennc24/common
