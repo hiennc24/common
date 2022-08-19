@@ -1,7 +1,7 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
-import { BaseRepository, MongoDB, Schema } from '@hiennc/mongoose';
-import { RedisCache } from '@hiennc/cache';
+import { BaseRepository, MongoDB, Schema } from '@hiennc24/mongoose';
+import { RedisCache } from '@hiennc24/cache';
 import { BaseEntity, BaseService, Logger } from '../src';
 
 import userData from './user.json';
