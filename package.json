@@ -1,6 +1,6 @@
 {
   "name": "@hiennc24/common",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "COMMON",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

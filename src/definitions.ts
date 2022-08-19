@@ -13,7 +13,7 @@ export interface IBaseService<T> {
   findMany(cond: Partial<T>): Promise<T[]>;
   findAll(cond: Partial<T>, option?: Partial<FindAllOption>): Promise<FindAllResponse<T>>;
   updateOne(filter?: any, update?: any, options?: any | null, callback?: any): Promise<T>;
-  // aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
+  aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
 }
 
 export interface IBaseRepository<T> {
@@ -26,7 +26,7 @@ export interface IBaseRepository<T> {
   findMany(cond: Partial<T>): Promise<T[]>;
   findAll(cond: Partial<T>, option?: Partial<FindAllOption>): Promise<FindAllResponse<T>>;
   updateOne(filter?: any, update?: any, options?: any | null, callback?: any): Promise<T>;
-  // aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
+  aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
 }
 
 export interface ILogger {

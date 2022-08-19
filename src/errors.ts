@@ -18,8 +18,6 @@ export enum ErrorMessage {
   ValidationError = 'Validation Error'
 }
 
-
-
 export class AppError extends Error {
   code: number;
   details?: ErrorDetails;

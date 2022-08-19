@@ -126,17 +126,19 @@ export class Logger implements ILogger {
     return logObject;
   }
 
-  info(message: string, details?: any): void {
+  info(message: string, details?: Array<any>): void {
     this.Logger.info(message, details);
   }
 
-  error(message: string, details?: any): void {
+  error(message: string, details?: Array<any>): void {
     this.Logger.error(message, details);
   }
-  warn(message: string, details?: any): void {
+
+  warn(message: string, details?: Array<any>): void {
     this.Logger.warn(message, details);
   }
-  debug(message: string, details?: any): void {
+
+  debug(message: string, details?: Array<any>): void {
     this.Logger.debug(message, details);
   }
 }
