@@ -1,6 +1,6 @@
 {
   "name": "@hiennc24/common",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "COMMON",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -31,8 +31,8 @@
     "@types/node": "^15.3.0",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
-    "@hiennc24/cache": "^1.0.0",
-    "@hiennc24/mongoose": "^1.0.1",
+    "@hiennc24/cache": "^1.0.3",
+    "@hiennc24/mongoose": "^1.0.12",
     "chai": "^4.3.4",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
