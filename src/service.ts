@@ -97,6 +97,11 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return raw;
   }
 
+  async populate(docs: Array<any>, options: any, callback?: any): Promise<any> {
+    const raw = await this.repo.populate(docs, options, callback);
+    return raw;
+  }
+
   protected async getCache(cond: Partial<T>): Promise<T | null> {
     if (!this.cache) return null;
     if (!Object.keys(cond).length) return null;
