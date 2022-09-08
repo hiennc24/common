@@ -59,17 +59,17 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@hiennc24/cache@^1.0.0":
+"@hiennc24/cache@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@hiennc24/cache/-/cache-1.0.3.tgz#080e66e12eb926e708addd4d18ebf01a018e510b"
   integrity sha512-3vjrEpeQumwYKIumUqvMgexne8CKeQjyeYTbTPghDzwT60+n0elvwAICzVUJJuUJDccctTTIj/klFawP+gdHew==
   dependencies:
     redis "^3.1.2"
 
-"@hiennc24/mongoose@^1.0.1":
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/@hiennc24/mongoose/-/mongoose-1.0.12.tgz#795c8e933f530fae79aa02ef411c4811b0082c8f"
-  integrity sha512-rK8Rgd/1KNfAorJ57xgObhNko28znRbwjGJuR3usX/vHH2G7m1r2ZPdhPZFCKkLSR3wiWAnLmKa6LA8JV18h9g==
+"@hiennc24/mongoose@^1.0.12":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@hiennc24/mongoose/-/mongoose-1.0.14.tgz#01fbbcaa0e07181ca9079c21811397c82b7c3484"
+  integrity sha512-Cqr7KoU++TnzIelZh8/iaJOrdl7Jge3IGbthp16nkWYsQs6KhDrMlr1UfcZT18T+h1Aaoo16P1N5ilJRhH6MCA==
   dependencies:
     mongoose "^6.5.2"
 
