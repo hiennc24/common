@@ -97,8 +97,31 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return raw;
   }
 
-  async populate(docs: any, options: any, callback?: any): Promise<any> {
-    const raw = await this.repo.populate(docs, options, callback);
+  async populate(doc: any, options: any, callback?: any): Promise<T> {
+    const raw = await this.repo.populate(doc, options, callback);
+    return raw;
+  }
+
+  async findAndPopulate(
+    filter: any,
+    path: string[] | string,
+    projection?: any,
+    options?: any,
+    select?: any,
+    model?: any,
+    match?: any,
+    callback?: any
+  ): Promise<any> {
+    const raw = await this.repo.findAndPopulate(
+      filter,
+      path,
+      projection,
+      options,
+      select,
+      model,
+      match,
+      callback
+    );
     return raw;
   }
 
