@@ -15,17 +15,9 @@ export interface IBaseService<T> {
   updateOne(filter?: any, update?: any, options?: any | null, callback?: any): Promise<T>;
   aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
   populate(docs: Array<any> | any, options: any, callback?: any): Promise<T>;
-  // findAndPopulate(
-  //   filter: any,
-  //   path: string[] | string,
-  //   projection?: any,
-  //   options?: any,
-  //   select?: string | any,
-  //   model?: string | any,
-  //   match?: any,
-  //   callback?: any
-  // ): Promise<any>;
   findAndPopulate(filter: any, options: any, projection?: any): Promise<any>;
+  insertMany(docs: Array<any> | any, options: any, callback?: any): Promise<any>;
+  deleteMany(filter?: any, options?: any, callback?: any): Promise<any>;
 }
 
 export interface IBaseRepository<T> {
@@ -41,6 +33,8 @@ export interface IBaseRepository<T> {
   aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
   populate(docs: Array<any> | any, options: any, callback?: any): Promise<T>;
   findAndPopulate(filter: any, options: any, callback?: any): Promise<any>;
+  insertMany(docs: Array<any> | any, options: any, callback?: any): Promise<any>;
+  deleteMany(filter?: any, options?: any, callback?: any): Promise<any>;
 }
 
 export interface ILogger {

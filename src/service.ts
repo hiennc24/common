@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import {
   IBaseRepository,
   ICache,
@@ -76,7 +77,6 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return data;
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async updateOne(filter: any, update?: any, options?: any, callback?: any): Promise<T> {
     const raw = await this.repo.updateOne(filter, update, options, callback);
     return raw;
@@ -107,6 +107,15 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return raw;
   }
 
+  async insertMany(docs: any, options: any, callback?: any): Promise<any> {
+    const raw = await this.repo.insertMany(docs, options, callback);
+    return raw;
+  }
+
+  async deleteMany(filter: any, options: any, callback?: any): Promise<any> {
+    const raw = await this.repo.deleteMany(filter, options, callback);
+    return raw;
+  }
   protected async getCache(cond: Partial<T>): Promise<T | null> {
     if (!this.cache) return null;
     if (!Object.keys(cond).length) return null;
