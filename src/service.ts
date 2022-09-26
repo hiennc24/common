@@ -107,7 +107,11 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return raw;
   }
 
-  async insertMany(docs: any, options: any, callback?: any): Promise<any> {
+  async insertMany(
+    docs: Array<Partial<T>> | Partial<T>,
+    options?: any,
+    callback?: any
+  ): Promise<any> {
     const raw = await this.repo.insertMany(docs, options, callback);
     return raw;
   }
