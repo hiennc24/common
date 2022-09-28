@@ -67,11 +67,6 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return _entity;
   }
 
-  async findMany(cond: Partial<T>): Promise<T[]> {
-    const _entities = await this.repo.findMany(cond);
-    return _entities;
-  }
-
   async findAll(cond: Partial<T>, option?: Partial<FindAllOption>): Promise<FindAllResponse<T>> {
     const data = await this.repo.findAll(cond, option);
     return data;
@@ -120,6 +115,17 @@ export abstract class BaseService<T> implements IBaseService<T> {
     const raw = await this.repo.deleteMany(filter, options, callback);
     return raw;
   }
+
+  async updateMany(
+    filter: Array<Partial<T>> | Partial<T>,
+    update?: any,
+    options?: any,
+    callback?: any
+  ): Promise<any> {
+    const raw = await this.repo.updateMany(filter, update, options, callback);
+    return raw;
+  }
+
   protected async getCache(cond: Partial<T>): Promise<T | null> {
     if (!this.cache) return null;
     if (!Object.keys(cond).length) return null;
