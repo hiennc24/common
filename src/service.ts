@@ -77,12 +77,7 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return raw;
   }
 
-  async find(
-    filter: Partial<T>,
-    projection?: Array<any>,
-    options?: Array<any>,
-    callback?: Array<any>
-  ): Promise<T> {
+  async find(filter: Partial<T>, projection?: any, options?: any, callback?: any): Promise<T> {
     const raw = await this.repo.find(filter, projection, options, callback);
     return raw;
   }
