@@ -61,7 +61,7 @@ describe('CREATE User', () => {
     userService
       .create(user)
       .then((result) => {
-        expect(result).has.ownProperty('_id');
+        expect(result).has.ownProperty('id');
         expect(result.email).to.eqls(user.email);
         expect(result.name).to.eqls(user.name);
         done();
