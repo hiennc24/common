@@ -66,10 +66,10 @@
   dependencies:
     redis "^3.1.2"
 
-"@hiennc24/mongoose@^1.0.21":
-  version "1.0.21"
-  resolved "https://registry.yarnpkg.com/@hiennc24/mongoose/-/mongoose-1.0.21.tgz#aef474b2691b7bf71d5bc7977b9f9914fffaa09a"
-  integrity sha512-Xirh0REtslsDDsRq2ysHrDHlauulbXyxiIKrjzNJLnC5jXjnHBFkvfLvJQKLas0avq9/COlM+ZHZX+g+/v/bBQ==
+"@hiennc24/mongoose@^1.0.23":
+  version "1.0.23"
+  resolved "https://registry.yarnpkg.com/@hiennc24/mongoose/-/mongoose-1.0.23.tgz#68162884bac04a22d304601c2a27151fdf053516"
+  integrity sha512-gJhludgesajXkXjIek5IQX8WCqkYHY2E0tSuzxCyXe5HlYZxBqra+EonVBem6WZJI8k7tQOqVaAWQEX6WwNLaw==
   dependencies:
     mongoose "^6.5.2"
 
