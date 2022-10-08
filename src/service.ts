@@ -77,7 +77,7 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return raw;
   }
 
-  async find(filter: Partial<T>, projection?: any, options?: any, callback?: any): Promise<T> {
+  async find(filter: Partial<T>, projection?: any, options?: any, callback?: any): Promise<T[]> {
     const raw = await this.repo.find(filter, projection, options, callback);
     return raw;
   }
@@ -101,7 +101,7 @@ export abstract class BaseService<T> implements IBaseService<T> {
     docs: Array<Partial<T>> | Partial<T>,
     options?: any,
     callback?: any
-  ): Promise<any> {
+  ): Promise<T[]> {
     const raw = await this.repo.insertMany(docs, options, callback);
     return raw;
   }

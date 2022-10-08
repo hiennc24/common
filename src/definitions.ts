@@ -7,7 +7,7 @@ export interface IBaseService<T> {
   create(entity: Partial<T>): Promise<T>;
   updateById(id: string, doc: Partial<T>): Promise<boolean>;
   deleteById(id: string): Promise<boolean>;
-  find(filter?: Partial<T>, projection?: any, options?: any | null, callback?: any): Promise<T>;
+  find(filter?: Partial<T>, projection?: any, options?: any | null, callback?: any): Promise<T[]>;
   findOne(cond: Partial<T>): Promise<T>;
   findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options?: UpdateOptions): Promise<T>;
   findAll(cond: Partial<T>, option?: Partial<FindAllOption>): Promise<FindAllResponse<T>>;
@@ -15,7 +15,7 @@ export interface IBaseService<T> {
   aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
   populate(docs: Array<any> | any, options: any, callback?: any): Promise<T>;
   findAndPopulate(filter: any, options: any, projection?: any): Promise<any>;
-  insertMany(docs: Array<Partial<T>> | Partial<T>, options?: any, callback?: any): Promise<T>;
+  insertMany(docs: Array<Partial<T>> | Partial<T>, options?: any, callback?: any): Promise<T[]>;
   deleteMany(filter?: any, options?: any, callback?: any): Promise<any>;
   updateMany(filter: any, update?: any, options?: any, callback?: any): Promise<T>;
 }
@@ -24,7 +24,7 @@ export interface IBaseRepository<T> {
   create(entity: Partial<T>): Promise<T>;
   updateById(id: string, doc: Partial<T>): Promise<boolean>;
   deleteById(id: string): Promise<boolean>;
-  find(filter?: Partial<T>, projection?: any, options?: any | null, callback?: any): Promise<T>;
+  find(filter?: Partial<T>, projection?: any, options?: any | null, callback?: any): Promise<T[]>;
   findOne(cond: Partial<T>): Promise<T>;
   findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options?: UpdateOptions): Promise<T>;
   findAll(cond: Partial<T>, option?: Partial<FindAllOption>): Promise<FindAllResponse<T>>;
@@ -32,7 +32,7 @@ export interface IBaseRepository<T> {
   aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
   populate(docs: Array<any> | any, options: any, callback?: any): Promise<T>;
   findAndPopulate(filter: any, options: any, callback?: any): Promise<any>;
-  insertMany(docs: Array<Partial<T>> | Partial<T>, options?: any, callback?: any): Promise<T>;
+  insertMany(docs: Array<Partial<T>> | Partial<T>, options?: any, callback?: any): Promise<T[]>;
   deleteMany(filter?: any, options?: any, callback?: any): Promise<any>;
   updateMany(filter: any, update?: any, options?: any, callback?: any): Promise<T>;
 }
