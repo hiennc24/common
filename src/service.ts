@@ -12,7 +12,7 @@ import {
 
 const CACHE_REF_ID = '#refId_';
 
-function isAllowecCache() {
+function isAllowedCache() {
   return process.env.NODE_ENV !== 'development';
 }
 
@@ -25,7 +25,7 @@ export abstract class BaseService<T> implements IBaseService<T> {
 
   constructor(repo: IBaseRepository<T>, cache?: ServiceCache, logger: ILogger = console) {
     this.repo = repo;
-    this.cache = isAllowecCache() ? cache?.cache : undefined;
+    this.cache = isAllowedCache() ? cache?.cache : undefined;
     this.prefix = cache?.appName ? cache.appName + cache.uniqueKey : '';
     this.ttl = cache?.second;
     this.logger = logger;
@@ -72,8 +72,9 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return data;
   }
 
-  async updateOne(filter: any, update?: any, options?: any, callback?: any): Promise<T> {
+  async updateOne(filter: Partial<T>, update?: any, options?: any, callback?: any): Promise<T> {
     const raw = await this.repo.updateOne(filter, update, options, callback);
+    this.deleteCache(filter as unknown as Partial<T>);
     return raw;
   }
 
