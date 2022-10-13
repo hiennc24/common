@@ -14,7 +14,7 @@ export interface IBaseService<T> {
   updateOne(filter?: any, update?: any, options?: any | null, callback?: any): Promise<T>;
   aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
   populate(docs: Array<any> | any, options: any, callback?: any): Promise<T>;
-  findAndPopulate(filter: any, options: any, projection?: any): Promise<any>;
+  findAndPopulate(filter: any, options: any, projection?: any, callback?: any): Promise<any>;
   insertMany(docs: Array<Partial<T>> | Partial<T>, options?: any, callback?: any): Promise<T[]>;
   deleteMany(filter?: any, options?: any, callback?: any): Promise<any>;
   updateMany(filter: any, update?: any, options?: any, callback?: any): Promise<T>;
@@ -31,7 +31,7 @@ export interface IBaseRepository<T> {
   updateOne(filter?: any, update?: any, options?: any | null, callback?: any): Promise<T>;
   aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
   populate(docs: Array<any> | any, options: any, callback?: any): Promise<T>;
-  findAndPopulate(filter: any, options: any, callback?: any): Promise<any>;
+  findAndPopulate(filter: any, options: any, projection?: any, callback?: any): Promise<any>;
   insertMany(docs: Array<Partial<T>> | Partial<T>, options?: any, callback?: any): Promise<T[]>;
   deleteMany(filter?: any, options?: any, callback?: any): Promise<any>;
   updateMany(filter: any, update?: any, options?: any, callback?: any): Promise<T>;
