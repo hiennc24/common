@@ -4,7 +4,7 @@ export type UpdateOptions = {
 };
 
 export interface IBaseService<T> {
-  create(entity: Partial<T>): Promise<T>;
+  create(entity: Partial<T>, session?: any): Promise<T>;
   updateById(id: string, doc: Partial<T>): Promise<boolean>;
   deleteById(id: string): Promise<boolean>;
   find(filter?: Partial<T>, projection?: any, options?: any | null, callback?: any): Promise<T>;
@@ -21,7 +21,7 @@ export interface IBaseService<T> {
 }
 
 export interface IBaseRepository<T> {
-  create(entity: Partial<T>): Promise<T>;
+  create(entity: Partial<T>, session?: any): Promise<T>;
   updateById(id: string, doc: Partial<T>): Promise<boolean>;
   deleteById(id: string): Promise<boolean>;
   find(filter?: Partial<T>, projection?: any, options?: any | null, callback?: any): Promise<T>;

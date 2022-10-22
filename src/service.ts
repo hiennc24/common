@@ -31,8 +31,8 @@ export abstract class BaseService<T> implements IBaseService<T> {
     this.logger = logger;
   }
 
-  async create(entity: Partial<T>): Promise<T> {
-    const _entity = await this.repo.create(entity);
+  async create(entity: Partial<T>, session?: any): Promise<T> {
+    const _entity = await this.repo.create(entity, session);
     return _entity;
   }
 
