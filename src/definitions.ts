@@ -4,12 +4,12 @@ export type UpdateOptions = {
 };
 
 export interface IBaseService<T> {
-  create(entity: Partial<T>): Promise<T>;
+  create(entity: Partial<T>, session?: any): Promise<T>;
   updateById(id: string, doc: Partial<T>): Promise<boolean>;
   deleteById(id: string): Promise<boolean>;
   find(filter?: Partial<T>, projection?: any, options?: any | null, callback?: any): Promise<T>;
-  findOne(cond: Partial<T>): Promise<T>;
-  findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options?: UpdateOptions): Promise<T>;
+  findOne(cond: Partial<T>, projection?: any, options?: any): Promise<T>;
+  findOneAndUpdate(cond: Partial<T>, doc: any, options?: any): Promise<T>;
   findAll(cond: Partial<T>, option?: Partial<FindAllOption>): Promise<FindAllResponse<T>>;
   updateOne(filter?: any, update?: any, options?: any | null, callback?: any): Promise<T>;
   aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
@@ -21,12 +21,12 @@ export interface IBaseService<T> {
 }
 
 export interface IBaseRepository<T> {
-  create(entity: Partial<T>): Promise<T>;
+  create(entity: Partial<T>, session?: any): Promise<T>;
   updateById(id: string, doc: Partial<T>): Promise<boolean>;
   deleteById(id: string): Promise<boolean>;
   find(filter?: Partial<T>, projection?: any, options?: any | null, callback?: any): Promise<T>;
-  findOne(cond: Partial<T>): Promise<T>;
-  findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options?: UpdateOptions): Promise<T>;
+  findOne(cond: Partial<T>, projection?: any, options?: any): Promise<T>;
+  findOneAndUpdate(cond: Partial<T>, doc: any, options?: any): Promise<T>;
   findAll(cond: Partial<T>, option?: Partial<FindAllOption>): Promise<FindAllResponse<T>>;
   updateOne(filter?: any, update?: any, options?: any | null, callback?: any): Promise<T>;
   aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
