@@ -50,17 +50,17 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return result;
   }
 
-  async findOne(cond: Partial<T>): Promise<T> {
+  async findOne(cond: Partial<T>, projection?: any, options?: any): Promise<T> {
     const data = await this.getCache(cond);
     if (data) return data;
 
-    const _entity = await this.repo.findOne(cond);
+    const _entity = await this.repo.findOne(cond, projection, options);
 
     if (_entity) this.setCache(cond, _entity);
     return _entity;
   }
 
-  async findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options?: UpdateOptions): Promise<T> {
+  async findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options?: any): Promise<T> {
     const _entity = await this.repo.findOneAndUpdate(cond, doc, options);
 
     if (_entity) this.setCache(cond, _entity);
