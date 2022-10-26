@@ -1,32 +1,48 @@
+import { QueryOptions, InsertManyOptions, ClientSession } from 'mongoose';
+
 export type UpdateOptions = {
   new?: boolean;
   upsert?: boolean;
 };
 
 export interface IBaseService<T> {
-  create(entity: Partial<T>, session?: any): Promise<T>;
+  create(entity: Partial<T>, session?: ClientSession): Promise<T>;
   updateById(id: string, doc: Partial<T>): Promise<boolean>;
   deleteById(id: string): Promise<boolean>;
-  find(filter?: Partial<T>, projection?: any, options?: any | null, callback?: any): Promise<T>;
-  findOne(cond: Partial<T>, projection?: any, options?: any): Promise<T>;
-  findOneAndUpdate(cond: Partial<T>, doc: any, options?: any): Promise<T>;
+  find(
+    filter?: Partial<T>,
+    projection?: any,
+    options?: QueryOptions | null,
+    callback?: any
+  ): Promise<T>;
+  findOne(cond: Partial<T>, projection?: any, options?: QueryOptions): Promise<T>;
+  findOneAndUpdate(cond: Partial<T>, doc: any, options?: QueryOptions): Promise<T>;
   findAll(cond: Partial<T>, option?: Partial<FindAllOption>): Promise<FindAllResponse<T>>;
   updateOne(filter?: any, update?: any, options?: any | null, callback?: any): Promise<T>;
   aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;
   populate(docs: Array<any> | any, options: any, callback?: any): Promise<T>;
   findAndPopulate(filter: any, options: any, projection?: any, callback?: any): Promise<any>;
-  insertMany(docs: Array<Partial<T>> | Partial<T>, options?: any, callback?: any): Promise<T[]>;
+  insertMany(
+    docs: Array<Partial<T>> | Partial<T>,
+    options?: any,
+    callback?: InsertManyOptions
+  ): Promise<T[]>;
   deleteMany(filter?: any, options?: any, callback?: any): Promise<any>;
   updateMany(filter: any, update?: any, options?: any, callback?: any): Promise<T>;
 }
 
 export interface IBaseRepository<T> {
-  create(entity: Partial<T>, session?: any): Promise<T>;
+  create(entity: Partial<T>, session?: ClientSession): Promise<T>;
   updateById(id: string, doc: Partial<T>): Promise<boolean>;
   deleteById(id: string): Promise<boolean>;
-  find(filter?: Partial<T>, projection?: any, options?: any | null, callback?: any): Promise<T>;
-  findOne(cond: Partial<T>, projection?: any, options?: any): Promise<T>;
-  findOneAndUpdate(cond: Partial<T>, doc: any, options?: any): Promise<T>;
+  find(
+    filter?: Partial<T>,
+    projection?: any,
+    options?: QueryOptions | null,
+    callback?: any
+  ): Promise<T>;
+  findOne(cond: Partial<T>, projection?: any, options?: QueryOptions): Promise<T>;
+  findOneAndUpdate(cond: Partial<T>, doc: any, options?: QueryOptions): Promise<T>;
   findAll(cond: Partial<T>, option?: Partial<FindAllOption>): Promise<FindAllResponse<T>>;
   updateOne(filter?: any, update?: any, options?: any | null, callback?: any): Promise<T>;
   aggregate(pipeline: Array<any>, options?: any | null): Promise<T>;

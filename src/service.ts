@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import { QueryOptions } from 'mongoose';
 import {
   IBaseRepository,
   ICache,
@@ -50,7 +51,7 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return result;
   }
 
-  async findOne(cond: Partial<T>, projection?: any, options?: any): Promise<T> {
+  async findOne(cond: Partial<T>, projection?: any, options?: QueryOptions): Promise<T> {
     const data = await this.getCache(cond);
     if (data) return data;
 
@@ -60,7 +61,7 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return _entity;
   }
 
-  async findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options?: any): Promise<T> {
+  async findOneAndUpdate(cond: Partial<T>, doc: Partial<T>, options?: QueryOptions): Promise<T> {
     const _entity = await this.repo.findOneAndUpdate(cond, doc, options);
 
     if (_entity) this.setCache(cond, _entity);
@@ -78,7 +79,12 @@ export abstract class BaseService<T> implements IBaseService<T> {
     return raw;
   }
 
-  async find(filter: Partial<T>, projection?: any, options?: any, callback?: any): Promise<T> {
+  async find(
+    filter: Partial<T>,
+    projection?: any,
+    options?: QueryOptions,
+    callback?: any
+  ): Promise<T> {
     const raw = await this.repo.find(filter, projection, options, callback);
     return raw;
   }
